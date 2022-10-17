@@ -1,19 +1,20 @@
 class Solution {
 public:
     int bitwiseComplement(int n) {
-        int num=0;
+        int d;
+        int ans=0;
         int i=0;
-        
-        if (n==0){
-            num=1;
+        if(n==0){
+            return 1;
         }
         while(n){
-            int bit=!(n&1);
+            d=n&1;
             n=n>>1;
-            num=(pow(2,i)*bit)+num;
+            d=!d;
+            ans=ans+(pow(2,i)*d);
             i++;
         }
-        return num;
-        
+
+        return ans;
     }
 };
