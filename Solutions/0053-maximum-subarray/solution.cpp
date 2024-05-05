@@ -1,17 +1,17 @@
 class Solution {
 public:
+
     int maxSubArray(vector<int>& nums) {
-        int m=INT_MIN;
-        int s=0;
+        std::ios::sync_with_stdio(0);
+        std::cin.tie(0);
+        int maxsum=nums[0],sum=0;
         for(int i=0;i<nums.size();i++){
-            s+=nums[i];
-            if(s>m){
-                m=s;
-            }
-            if(s<0){
-                s=0;
+            sum+=nums[i];
+            maxsum=max(sum,maxsum);
+            if(sum<0){
+                sum=0;
             }
         }
-        return m;
+        return maxsum;
     }
 };
