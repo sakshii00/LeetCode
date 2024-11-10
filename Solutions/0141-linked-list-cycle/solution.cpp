@@ -9,13 +9,14 @@
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
+        if(head==NULL || head->next==NULL) return false;
+        //if slow and fast pointer reach the same at the same time then it has a cycle
         ListNode* slow=head;
         ListNode* fast=head;
-        
         while(fast!=NULL && fast->next!=NULL){
             slow=slow->next;
             fast=fast->next->next;
-            if(slow==fast) return true;
+            if(fast==slow) return true;
         }
         return false;
     }
